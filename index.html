@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Your Fitness Companion</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #F4EDD3;
+            color: #4C585B;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #A5BFCC;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('c:\Users\JUJHAR SINGH\Downloads\heavy girl doing plank animated line .jpg') center/cover no-repeat;
+    color: white;
+    padding: 0 20px;
+    transition: background 0.7s ease; /* Smooth transition for opacity */
+}
+
+.hero:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('c:\Users\JUJHAR SINGH\Downloads\heavy girl doing plank animated line .jpg') center/cover no-repeat;
+    opacity: 0.7; /* Reduce opacity on hover */
+}
+
+
+ .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in;
+        }
+
+.hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            font-size: 18px;
+            padding: 10px 20px;
+            color: #7E99A3;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #f0f0f0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: #E8F0F2;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #A5BFCC;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item button {
+            font-size: 16px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #7E99A3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature-item button:hover {
+            background-color: #6a848f;
+        }
+
+        /* Chatbot */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot button {
+            background-color: #4C585B;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #A5BFCC;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .chatbot-window header {
+            background-color: #A5BFCC;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chatbot-messages {
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+        }
+
+        .chatbot-input button {
+            padding: 10px;
+            background-color: #7E99A3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4C585B;
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">FitTrack</div>
+        <nav>
+            <ul>
+                <li><a href="#bmi">BMI Calculator</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>FitTrack</h1>
+        <p>Your Fitness Journey Starts Here</p>
+        <a href="login-signup.html">
+            <button>Join Now</button>
+        </a>        
+    </div>
+
+    <!-- Features Section -->
+    <div class="features" id="features">
+        <div class="feature-item">
+            <img src="c:\Users\JUJHAR SINGH\Downloads\A BMI calculator wheel .jpg" alt="BMI Calculator">
+            <h2>BMI Calculator</h2>
+            <p>Calculate your BMI and track your health progress easily!</p>
+            <button onclick="window.location.href='bmi-calculator.html';">Calculate Now</button>
+        </div>
+        <div class="feature-item">
+            <img src="c:\Users\JUJHAR SINGH\Downloads\weekly training programs table .jpg" alt="Weekly Training">
+            <h2>Weekly Training Programs</h2>
+            <p>Get personalized workout plans tailored to your fitness level.</p>
+            <button onclick="window.location.href='weekly-program.html';">Get Weekly Program</button>
+        </div>
+        <div class="feature-item">
+          <img src="c:\Users\JUJHAR SINGH\Downloads\Exercise safety tips one figure.jpg" alt="Exercise Safety">
+          <h2>Exercise Safety Tips</h2>
+          <p>Stay safe while exercising with our tips and recommendations.</p>
+          <button onclick="window.location.href='safety-tips.html';">Learn Safety Tips</button>
+      </div>
+
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot">
+        <button onclick="toggleChatbot()">&#128172;</button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <header>Chat with FitTrack</header>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 FitTrack. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Chatbot Toggle
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Chatbot Message Sending
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const messages = document.getElementById('chatbotMessages');
+
+            if (input.value.trim() === '') return;
+
+            const userMessage = document.createElement('div');
+            userMessage.textContent = `You: ${input.value}`;
+            messages.appendChild(userMessage);
+
+            const botMessage = document.createElement('div');
+            botMessage.textContent = 'Bot: Thanks for reaching out!';
+            messages.appendChild(botMessage);
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
