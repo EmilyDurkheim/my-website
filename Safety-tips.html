@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Safety Tips - FitTrack</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #F4EDD3;
+            color: #4C585B;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #A5BFCC;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .tips {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tip {
+            padding: 15px 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #E8F0F2;
+            border-left: 5px solid #A5BFCC;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tip p {
+            font-size: 16px;
+        }
+
+        /* Search Bar Styles */
+        .search-bar {
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #A5BFCC;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #7E99A3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #6a848f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4C585B;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">FitTrack</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                <li><a href="weekly-program.html">Weekly Programs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Exercise Safety Tips</h1>
+        <p>Stay safe and get the most out of your workouts by following these safety tips.</p>
+
+        <div class="tips">
+            <div class="tip">
+                <h3>Warm-Up Properly</h3>
+                <p>Always warm up for at least 5–10 minutes before starting your exercise routine to prevent injuries.</p>
+            </div>
+            <div class="tip">
+                <h3>Use Proper Form</h3>
+                <p>Ensure correct posture and technique during exercises to avoid strain or injury.</p>
+            </div>
+            <div class="tip">
+                <h3>Stay Hydrated</h3>
+                <p>Drink plenty of water before, during, and after your workout to maintain optimal performance.</p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for an exercise...">
+            <button onclick="searchExercise()">Search</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FitTrack. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Search -->
+    <script>
+        function searchExercise() {
+            const input = document.getElementById('searchInput').value;
+            if (input) {
+                const query = encodeURIComponent(input);
+                window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank');
+            } else {
+                alert('Please enter an exercise to search for.');
+            }
+        }
+    </script>
+</body>
+</html>

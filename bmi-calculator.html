@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #F4EDD3;
+            color: #4C585B;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #A5BFCC;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #E8F0F2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #A5BFCC;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #7E99A3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #6a848f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4C585B;
+            color: white;
+            margin-top: auto;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">FitTrack</div>
+        <nav>
+            <a href="index.html" style="color: white;">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>BMI Calculator</h1>
+
+        <form id="bmiForm">
+            <label for="weight">Weight (kg):</label><br>
+            <input type="number" id="weight" placeholder="Enter your weight" required><br>
+            <label for="height">Height (cm):</label><br>
+            <input type="number" id="height" placeholder="Enter your height" required><br>
+            <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 FitTrack. All rights reserved.</p>
+    </footer>
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to m
+
+            if (isNaN(weight) || isNaN(height) || height === 0) {
+                alert('Please enter valid values for weight and height.');
+                return;
+            }
+
+            const bmi = (weight / (height * height)).toFixed(2);
+
+            let category = '';
+            if (bmi < 18.5) {
+                category = 'Underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'Normal weight';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = 'Overweight';
+            } else {
+                category = 'Obesity';
+            }
+
+            document.getElementById('result').textContent = `Your BMI is ${bmi} (${category}).`;
+        }
+    </script>
+</body>
+</html>
